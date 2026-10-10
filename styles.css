@@ -60,8 +60,8 @@ body {
   background-color: #837f7a;
 }
 
-.sidebar.collapsed .nav-item:hover {
-  cursor: default
+.sidebar.collapsed .nav-item {
+  visibility: hidden;
 }
 
 /* Main Content Area adjustments */
