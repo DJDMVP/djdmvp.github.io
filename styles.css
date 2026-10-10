@@ -1,14 +1,28 @@
+:root {
+  --primary-color: #ada7ac;
+  --secondary-color: #837f7a;
+  --font-stack: 'Arial', sans-serif;
+}
+
 body {
     margin: 0;
     background: linear-gradient(to right, #eeaa8f, #9bb2c4);
     text-align: center;
 }
 
+.home-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 20px;
+}
+
 /* Sidebar Styling */
 .sidebar {
   width: 240px; /* Full expanded width */
   height: 100vh;
-  background-color: #ada7ac;
+  background-color: var(--primary-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -22,8 +36,6 @@ body {
 .toggle-btn {
   background: none;
   border: none;
-  color: #fff;
-  font-size: 1.5rem;
   padding: 20px;
   cursor: pointer;
   align-self: flex-start;
@@ -47,6 +59,7 @@ body {
 }
 
 .nav-text {
+  color: #000000;
   opacity: 1;
   transition: opacity .3s ease;
 }
@@ -57,7 +70,7 @@ body {
 }
 
 .sidebar:not(.collapsed) .nav-item:hover {
-  background-color: #837f7a;
+  background-color: var(--secondary-color);
 }
 
 .sidebar.collapsed .nav-item {
@@ -66,8 +79,7 @@ body {
 
 /* Main Content Area adjustments */
 .main-content {
-  margin-left: 240px; /* Matches expanded sidebar width */
-  padding: 40px;
+  justify-content: center;
   width: 100%;
   transition: margin-left 0.3s ease;
 }
@@ -84,5 +96,5 @@ body {
 }
 
 .sidebar.collapsed + .main-content {
-  margin-left: 80px; /* Moves the content area back */
+  padding-left: 80px; /* Moves the content area back */
 }
