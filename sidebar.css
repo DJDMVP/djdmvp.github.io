@@ -15,10 +15,12 @@
   flex-direction: column;
   transition: width 0.3s ease; /* Animates the expansion/collapse */
   overflow-x: hidden; /* Prevents text spill when shrinking */
+  z-index: 1000;
 }
 
 /* Sidebar Toggle Button */
 .toggle-btn {
+position: fixed;
   background: none;
   border: none;
   padding: 20px;
@@ -26,6 +28,7 @@
   align-self: flex-start;
   width: 100%;
   text-align: left;
+  z-index: 1001;
 }
 
 /* Navigation Links */
@@ -33,6 +36,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  padding-top: 55px;
 }
 
 .nav-item {
@@ -46,6 +50,7 @@
 .nav-text {
   color: #000000;
   opacity: 1;
+  white-space: nowrap;
   transition: opacity .3s ease;
 }
 
@@ -71,15 +76,11 @@
 
 /* COLLAPSED STATE STYLES */
 .sidebar.collapsed {
-  width: 80px; /* Slim view width showing only icons */
+  width: 0px; /* Slim view width showing only icons */
 }
 
 .sidebar.collapsed .nav-text {
   opacity: 0;
   visibility: hidden; /* Hides text links seamlessly */
   transition: opacity 0.3s ease, visibility 0s ease .3s;
-}
-
-.sidebar.collapsed + .main-content {
-  padding-left: 80px; /* Moves the content area back */
 }
