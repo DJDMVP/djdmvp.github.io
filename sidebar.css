@@ -1,0 +1,85 @@
+:root {
+  --primary-color: #ada7ac;
+  --secondary-color: #837f7a;
+  --font-stack: 'Arial', sans-serif;
+}
+
+.sidebar {
+  width: 240px; /* Full expanded width */
+  height: 100vh;
+  background-color: var(--primary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease; /* Animates the expansion/collapse */
+  overflow-x: hidden; /* Prevents text spill when shrinking */
+}
+
+/* Sidebar Toggle Button */
+.toggle-btn {
+  background: none;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  align-self: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  color: #3b3a3a;
+  text-decoration: none;
+  padding: 15px 20px;
+}
+
+.nav-text {
+  color: #000000;
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+.nav-item i {
+  font-size: 1.25rem;
+  min-width: 40px; /* Ensures icons stay fixed in place */
+}
+
+.sidebar:not(.collapsed) .nav-item:hover {
+  background-color: var(--secondary-color);
+}
+
+.sidebar.collapsed .nav-item {
+  visibility: hidden;
+}
+
+/* Main Content Area adjustments */
+.main-content {
+  justify-content: center;
+  width: 100%;
+  transition: margin-left 0.3s ease;
+}
+
+/* COLLAPSED STATE STYLES */
+.sidebar.collapsed {
+  width: 80px; /* Slim view width showing only icons */
+}
+
+.sidebar.collapsed .nav-text {
+  opacity: 0;
+  visibility: hidden; /* Hides text links seamlessly */
+  transition: opacity 0.3s ease, visibility 0s ease .3s;
+}
+
+.sidebar.collapsed + .main-content {
+  padding-left: 80px; /* Moves the content area back */
+}
